@@ -45,6 +45,7 @@ public class SupplierTest {
 //        assertEquals("S1", supplier.getId());
 //    }
 
+
     @Test
     public void testTestDataExists() throws Exception {
         Session session = HibernateUtil.getSessionFactory().openSession();
