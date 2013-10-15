@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -21,16 +18,28 @@ import java.io.Serializable;
 public class Supply implements Serializable {
 
     @Column(name = "S_ID") @Id
-    @Getter @Setter
     private String supplierID;
 
     @Column(name = "P_ID") @Id
-    @Getter @Setter
     private String partID;
 
     @Column(name = "J_ID") @Id
-    @Getter @Setter
     private String projectID;
+
+    @OneToOne
+    @JoinColumn(name = "S_ID")
+    @Getter @Setter
+    private Supplier supplier;
+
+    @OneToOne
+    @JoinColumn(name = "P_ID")
+    @Getter @Setter
+    private Part part;
+
+    @OneToOne
+    @JoinColumn(name = "J_ID")
+    @Getter @Setter
+    private Project project;
 
     @Column(name = "QUANTITY")
     @Getter @Setter

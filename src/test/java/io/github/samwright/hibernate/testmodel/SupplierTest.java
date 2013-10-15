@@ -20,30 +20,30 @@ public class SupplierTest {
 
     final Logger logger = LoggerFactory.getLogger(SupplierTest.class);
 
-//    @Test
-//    public void testInsert() throws Exception {
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        session.beginTransaction();
-//        Object sID = null;
-//        Transaction transaction = null;
-//
-//        Supplier supplier = new Supplier("S1", "SMITH", 20, "LONDON");
-//
-//        try {
-//            transaction = session.beginTransaction();
-//            sID = session.save(supplier);
-//            transaction.commit();
-//        } catch (HibernateException e) {
-//            if (transaction != null)
-//                transaction.rollback();
-//            e.printStackTrace();
-//        } finally {
-//            session.close();
-//        }
-//
-//        System.out.println("returned ID: " + sID);
-//        assertEquals("S1", supplier.getId());
-//    }
+    @Test
+    public void testInsert() throws Exception {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Object sID = null;
+        Transaction transaction = null;
+
+        Supplier supplier = new Supplier("S7", "BOBBY", 50, "LONDON");
+
+        try {
+            transaction = session.beginTransaction();
+            sID = session.save(supplier);
+            transaction.commit();
+        } catch (HibernateException e) {
+            if (transaction != null)
+                transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+
+        System.out.println("returned ID: " + sID);
+        assertEquals("S1", supplier.getId());
+    }
 
 
     @Test
